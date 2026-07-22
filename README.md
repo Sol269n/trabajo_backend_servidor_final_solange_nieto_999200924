@@ -41,19 +41,53 @@ trabajo_backend_servidor_final_solange_nieto_999200924/
 ├── .env.example         # Plantilla de configuración de entorno
 └── package.json
 
-⚙️ Configuración e Instalación1. Requisitos previosTener instalado Node.js (v18+) y una cuenta activa en MongoDB Atlas.2. Pasos de instalaciónClonar el repositorio:Bashgit clone [https://github.com/Sol269n/trabajo_backend_servidor_final_solange_nieto_999200924.git](https://github.com/Sol269n/trabajo_backend_servidor_final_solange_nieto_999200924.git)
+⚙️ Configuración e Instalación
+1. Requisitos previos
+Tener instalado Node.js (v18+) y una cuenta activa en MongoDB Atlas.
+
+2. Pasos de instalación
+
+- Clonar el repositorio:
+git clone [https://github.com/Sol269n/trabajo_backend_servidor_final_solange_nieto_999200924.git](https://github.com/Sol269n/trabajo_backend_servidor_final_solange_nieto_999200924.git)
 cd trabajo_backend_servidor_final_solange_nieto_999200924
-Instalar dependencias:Bashnpm install
-Configurar el entorno:Creá un archivo .env en la raíz tomando de referencia .env.example:Fragmento de códigoPORT=3000
+
+- Instalar dependencias:
+npm install
+
+- Configurar el entorno:
+Creá un archivo .env en la raíz tomando de referencia .env.example:
+PORT=3000
 JWT_SECRET=tu_clave_secreta
 URI_DB=TU_STRING_DE_CONEXION_MONGODB_ATLAS
-Iniciar el servidor:Bashnpm run dev
-📌 Guía de Endpoints🔐 Autenticación (/api/auth)MétodoEndpointDescripciónPermisosPOST/api/auth/registerCrea un nuevo usuario en el sistemaPúblicoPOST/api/auth/loginInicia sesión y devuelve un token JWTPúblicoEjemplo de Body (POST /api/auth/register):JSON{
+
+- Iniciar el servidor:
+npm run dev
+
+📌 Guía de Endpoints🔐 Autenticación (/api/auth)MétodoEndpointDescripciónPermisosPOST/api/auth/registerCrea un nuevo usuario en el sistemaPúblicoPOST/api/auth/loginInicia sesión y devuelve un token JWTPúblicoEjemplo de Body (POST /api/auth/register):
+
+{
   "username": "SolangeNieto",
   "email": "solange@example.com",
   "password": "Password123!",
   "role": "user"
 }
-📦 Productos (/api/products)Nota: Todos los endpoints de productos requieren la cabecera:Authorization: Bearer <TOKEN_JWT>MétodoEndpointDescripciónPermisosGET/api/productsObtiene productos con paginación, filtros y sortuser (propios) / admin (todos)GET/api/products/allLista la totalidad de productos del sistemaSolo adminGET/api/products/:idObtiene un producto por su IDPropietario / adminPOST/api/productsCrea un nuevo productouser / adminPUT/api/products/:idModifica un producto existentePropietario / adminDELETE/api/products/:idElimina un producto por su IDPropietario / admin🔍 Ejemplos de Parámetros de Consulta (Query Params)El endpoint GET /api/products soporta parámetros opcionales para personalizar las búsquedas:Paginación: ?page=1&limit=5Filtro por Categoría: ?category=hardwareBúsqueda por Nombre: ?search=tecladoOrdenamiento: ?sort=asc o ?sort=descPetición de ejemplo:HTTPGET /api/products?page=1&limit=10&sort=asc&category=perifericos HTTP/1.1
+
+📦 Productos (/api/products)Nota: Todos los endpoints de productos requieren la cabecera:Authorization: Bearer <TOKEN_JWT>MétodoEndpointDescripciónPermisosGET/api/productsObtiene productos con paginación, filtros y sortuser (propios) / admin (todos)GET/api/products/allLista la totalidad de productos del sistemaSolo adminGET/api/products/:idObtiene un producto por su IDPropietario / adminPOST/api/productsCrea un nuevo productouser / adminPUT/api/products/:idModifica un producto existentePropietario / adminDELETE/api/products/:idElimina un producto por su IDPropietario / admin
+
+Ejemplos de Parámetros de Consulta (Query Params)
+El endpoint GET /api/products soporta parámetros opcionales para personalizar las búsquedas:
+
+Paginación: ?page=1&limit=5
+
+Filtro por Categoría: ?category=hardware
+
+Búsqueda por Nombre: ?search=teclado
+
+Ordenamiento: ?sort=asc o ?sort=desc
+
+Petición de ejemplo:
+
+GET /api/products?page=1&limit=10&sort=asc&category=perifericos HTTP/1.1
 Host: localhost:3000
 Authorization: Bearer <TU_TOKEN_JWT>
+
