@@ -57,14 +57,3 @@ Iniciar el servidor:Bashnpm run dev
 📦 Productos (/api/products)Nota: Todos los endpoints de productos requieren la cabecera:Authorization: Bearer <TOKEN_JWT>MétodoEndpointDescripciónPermisosGET/api/productsObtiene productos con paginación, filtros y sortuser (propios) / admin (todos)GET/api/products/allLista la totalidad de productos del sistemaSolo adminGET/api/products/:idObtiene un producto por su IDPropietario / adminPOST/api/productsCrea un nuevo productouser / adminPUT/api/products/:idModifica un producto existentePropietario / adminDELETE/api/products/:idElimina un producto por su IDPropietario / admin🔍 Ejemplos de Parámetros de Consulta (Query Params)El endpoint GET /api/products soporta parámetros opcionales para personalizar las búsquedas:Paginación: ?page=1&limit=5Filtro por Categoría: ?category=hardwareBúsqueda por Nombre: ?search=tecladoOrdenamiento: ?sort=asc o ?sort=descPetición de ejemplo:HTTPGET /api/products?page=1&limit=10&sort=asc&category=perifericos HTTP/1.1
 Host: localhost:3000
 Authorization: Bearer <TU_TOKEN_JWT>
-
----
-
-### 🔄 Subir la corrección a GitHub
-
-Una vez guardado el archivo en VS Code, ejecutá en la terminal:
-
-```bash
-git add README.md
-git commit -m "docs: fix readme formatting and sanitize db uri"
-git push
